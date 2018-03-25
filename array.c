@@ -24,6 +24,8 @@ void printArray(char *name, int a[], int len) {
 int insertElem(int a[], int size, int index, int value) {
 	if (index < 0)
 		index = 0;
+	else if (index >= MAX_LENGTH)
+		index = MAX_LENGTH - 1;
 	else if (index > size)
 		index = size; //index가 상정 범위를 벗어날 경우 자동으로 교정함
 	for (int i = size - 1; i >= index; i--) {
@@ -60,39 +62,22 @@ void main() {
 
 	printf("HW 1. Insert & Delete Element\n");
 	printArray("list", list, size);
-	size = deleteElem(list, size, size - 1);
+	for (int i = 0; i<100; i++) {
+		size = insertElem(list, size, -1, i);
+	}
 	printArray("list", list, size);
-	size = deleteElem(list, size, size - 1);
+	for (int i = 0; i<100; i++) {
+		size = insertElem(list, size, 200, i * 100);
+	}
 	printArray("list", list, size);
-	size = deleteElem(list, size, 0);
+	for (int i = 0; i<100; i++) {
+		size = deleteElem(list, size, -1);
+	}
 	printArray("list", list, size);
-	size = deleteElem(list, size, 0);
+	for (int i = 0; i<100; i++) {
+		size = deleteElem(list, size, 200);
+	}
 	printArray("list", list, size);
-	size = deleteElem(list, size, 0);
-	printArray("list", list, size);
-	size = insertElem(list, size, 0, 10);
-	printArray("list", list, size);
-	size = insertElem(list, size, 1, 20);
-	printArray("list", list, size);
-	size = insertElem(list, size, 2, 30);
-	printArray("list", list, size);
-	size = insertElem(list, size, 3, 40);
-	printArray("list", list, size);
-	size = insertElem(list, size, 0, 50);
-	printArray("list", list, size);
-	size = deleteElem(list, size, 3);
-	printArray("list", list, size);
-	size = deleteElem(list, size, 0);
-	printArray("list", list, size);
-	size = insertElem(list, size, size, 35);
-	printArray("list", list, size);
-	size = insertElem(list, size, 0, 0);
-	printArray("list", list, size);
-	size = deleteElem(list, size, 2);
-	printArray("list", list, size);
-
-
-
 
 }
 
