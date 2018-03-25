@@ -24,8 +24,8 @@ void printArray(char *name, int a[], int len) {
 int insertElem(int a[], int size, int index, int value) {
 	if (index < 0)
 		index = 0;
-	else if (index >= size)
-		index = size - 1; //index가 상정 범위를 벗어날 경우 자동으로 교정함
+	else if (index > size)
+		index = size; //index가 상정 범위를 벗어날 경우 자동으로 교정함
 	for (int i = size - 1; i >= index; i--) {
 		if (i == MAX_LENGTH - 1)
 			continue; //MAX_LENGTH번째 element를 참조하지 못하도록 함
@@ -39,7 +39,7 @@ int deleteElem(int a[], int size, int index) {
 	if (index < 0)
 		index = 0;
 	else if (index >= size)
-		index = size - 1;
+		index = size-1; //index가 상정 범위를 벗어날 경우 자동으로 교정함
 	for (int i = index; (i < size)&&(i>-1); i++) {
 		if (i == MAX_LENGTH - 1)
 			continue; //MAX_LENGTH번째 element를 참조하지 못하도록 함
@@ -60,17 +60,38 @@ void main() {
 
 	printf("HW 1. Insert & Delete Element\n");
 	printArray("list", list, size);
-	for (int i = 0; i < 200; i++) {
-		size = insertElem(list, size, 200, i);
-	}
-
+	size = deleteElem(list, size, size - 1);
+	printArray("list", list, size);
+	size = deleteElem(list, size, size - 1);
+	printArray("list", list, size);
+	size = deleteElem(list, size, 0);
+	printArray("list", list, size);
+	size = deleteElem(list, size, 0);
+	printArray("list", list, size);
+	size = deleteElem(list, size, 0);
+	printArray("list", list, size);
+	size = insertElem(list, size, 0, 10);
+	printArray("list", list, size);
+	size = insertElem(list, size, 1, 20);
+	printArray("list", list, size);
+	size = insertElem(list, size, 2, 30);
+	printArray("list", list, size);
+	size = insertElem(list, size, 3, 40);
+	printArray("list", list, size);
+	size = insertElem(list, size, 0, 50);
+	printArray("list", list, size);
+	size = deleteElem(list, size, 3);
+	printArray("list", list, size);
+	size = deleteElem(list, size, 0);
+	printArray("list", list, size);
+	size = insertElem(list, size, size, 35);
+	printArray("list", list, size);
+	size = insertElem(list, size, 0, 0);
+	printArray("list", list, size);
+	size = deleteElem(list, size, 2);
 	printArray("list", list, size);
 
-	for (int i = 0; i < 200; i++) {
-		size = deleteElem(list, size, 0);
-	}
 
-	printArray("list", list, size);
 
 
 }
