@@ -37,8 +37,7 @@ Node *addFirstNode(Node *list, Node *p) {
 Node *addLastNode(Node *list, Node *p) {
 	Node* q=list;
 	if (q==NULL) {
-		p->link = q;
-		return q;
+		return p;
 	}
 	while (q->link!=NULL)
 		q=q->link;
