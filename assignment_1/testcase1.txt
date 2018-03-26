@@ -1,0 +1,8 @@
+size = insertElem(list, size, size, 200);
+size = insertElem(list, size, 0, 300);
+size = deleteElem(list, size, 3);
+size = deleteElem(list, size, 0);
+size = insertElem(list, size, 1, 19000);
+size = insertElem(list, size, 6, 0);
+size = deleteElem(list, size, 0);
+size = deleteElem(list, size, size-1);

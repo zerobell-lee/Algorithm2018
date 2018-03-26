@@ -1,0 +1,12 @@
+for (int i=0; i<100; i++) {
+	size = insertElem(list, size, -1, i);
+}
+for (int i=0; i<100; i++) {
+	size = insertElem(list, size, 200, i*100);
+}
+for (int i=0; i<100; i++) {
+	size = deleteElem(list, size, -1);
+}
+for (int i=0; i<100; i++) {
+	size = deleteElem(list, size, 200);
+}
