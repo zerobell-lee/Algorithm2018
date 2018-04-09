@@ -20,10 +20,10 @@ void arraySetup(int arr[], int size) {
 }
 
 void merge(int a[], int start, int middle, int end) {
-	int b[MAX_SIZE];
+	int b[end-start+1];
 	int i = start;
 	int j = middle+1;
-	for (int k=start; k<=end; k++) {
+	for (int k=0; k<=(end-start); k++) {
 		if ((i<=middle)&&(j>end||a[i]<=a[j])) {
 			b[k] = a[i];
 			i++;
@@ -33,8 +33,8 @@ void merge(int a[], int start, int middle, int end) {
 			j++;
 		}
 	}
-	for (int k=start; k<=end; k++) {
-		a[k] = b[k];
+	for (int k=0; (k<=end-start); k++) {
+		a[k+start] = b[k];
 	}
 }
 
