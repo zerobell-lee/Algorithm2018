@@ -1,48 +1,37 @@
+#pragma once
 #include <stdio.h>
-#include <time.h>
 #define MAX_SIZE 10
 
-void printArray(char* name, int arr[], int size) {
-	printf("%s[%d] : {", name, size);
-	for (int i=0; i<size; i++) {
-		printf("%d", arr[i]);
-		if (i+1!=size)
-			printf(", ");
-	}
-	printf("}\n");
-}
+extern int change;
+extern int compare;
 
-void arraySetup(int arr[], int size) {
-	srand(time(NULL));
-	for (int i=0; i<size; i++) {
-		arr[i] = rand()%100;
-	}
-}
-
-void swap(int* a, int* b) {
-	int tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
+extern FILE* bubfp;
 
 void bubbleSort(int arr[], int size) {
 
 	int i, j, flag;
-	for (i=size; i>0; i--) {
+	for (i=size-1; i>0; i--) {
 		flag = 0;
+		change++; //위에 flag를 할당했으므로 change가 들어간다.
 		for (j=0; j<i; j++) {
 			if (arr[j]>arr[j+1]) {
 				swap(&arr[j], &arr[j+1]);
 				flag = 1;
+				change++; //위에 flag를 할당했으므로 change가 들어간다.
 			}
+			change++;
+			compare++;
 		}
-		printArray("arr", arr, MAX_SIZE);
+		if (size < 1001)
+			fprintArray(arr, size, bubfp);
+//		printArray("arr", arr, MAX_SIZE);
+		compare++; //아래 flag 판별을 하므로 compare가 들어간다.
 		if (!flag)
 			break;
 	}
 }
 
-void main(int argc, char* argv[]) {
+/* void main(int argc, char* argv[]) {
 	int arr[MAX_SIZE];
 	
 	arraySetup(arr, MAX_SIZE);
@@ -52,3 +41,4 @@ void main(int argc, char* argv[]) {
 	
 
 }
+*/
