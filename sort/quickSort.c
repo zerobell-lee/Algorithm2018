@@ -9,26 +9,26 @@ int partition(int a[], int start, int end) {
 	int pivot=start;
 	int L=start;
 	int R=end;
-	change++; change++; change++; //�� ���� ���� change 3��
+	change++; change++; change++; //pivot, L, R 할당에 세번 발생
 
 	while (L<R) {
-		compare++; //while �����鼭 �� �ѹ�
+		compare++; //while 조건문에서 비교 발생
 		while ((a[L] <= a[pivot]) && (L < end)) {
-			compare++; //while �����鼭 �� �ѹ�
+			compare++; //while 조건문에서 비교 발생
 			L++;
-			change++; //L���� ����Ǿ����� change �߻�
+			change++; //L값 증가
 		}
-		compare++; //while�� �������� ������� �ʴ��� ���ǹ��� �ѹ� ��ġ�� �� ���̴� compare �߻�
+		compare++; //while이 실행되지 않을 때도 비교 연산은 수행된 후이므로 비교횟수 상승
 		while (a[R] > a[pivot]) {
-			compare++; //while �����鼭 �� �ѹ�
+			compare++; //while 
 			R--;
-			change++; //R���� ����Ǿ����� change �߻�
+			change++; //R값 감소
 		}
-		compare++; //while�� �������� ������� �ʴ��� ���ǹ��� �ѹ� ��ġ�� �� ���̴� compare �߻�
+		compare++; //while. 이유는 상술한 바와 같음.
 		if (L<R) swap(&a[L], &a[R]);
-		compare++; //���� if���� �񱳿��� �߻�
+		compare++; //위의 if
 	}
-	compare++; //while�� �������� ������� �ʴ��� ���ǹ��� �ѹ� ��ġ�� �� ���̴� compare �߻�
+	compare++; //while. 설명 생략
 	swap(&a[pivot],&a[R]);
 	return R;
 }
@@ -37,9 +37,9 @@ void quickSort(int a[], int start, int end) {
 
 	if (start<end) {
 		int pivot = partition(a, start, end);
-		change++; //pivot �Ҵ��� �Ǿ����� change
+		change++; //pivot
 		quickSort(a, start, pivot-1);
 		quickSort(a, pivot+1, end);
 	}
-	compare++; //if�� ������� �ʴ��� �񱳿����� ����ȴ�.
+	compare++; //if수행 되었으니
 }

@@ -9,7 +9,7 @@ int compare = 0;
 
 void main() {
 	
-	printf("???? ????? ?? 201202564 ????? \n");
+	printf("정렬 알고리즘 비교  201202564 이영종\n");
 
 	FILE* log;
 	int* arr[10];

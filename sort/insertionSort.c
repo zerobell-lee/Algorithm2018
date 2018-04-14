@@ -11,21 +11,21 @@ void insertionSort(int arr[], int size) {
 	for (int i=1; i<size; i++) {
 		
 		val = arr[i];	
-		change++; //val�� �Ҵ������Ƿ� change�� �߻�
+		change++; //val = arr[i]
 		
 		for (pos=i; pos>0; pos--) {
 			
-			compare++; //�Ʒ� if������ �񱳿����� �ϹǷ� compare �߻�
+			compare++; //if
 			if (val < arr[pos - 1]) {
 				arr[pos] = arr[pos - 1];
-				change++; //�迭 �Ҵ��� �����Ƿ� change �߻�
+				change++; //arr[pos] = arr[pos-1]
 			}
 			else
 				break;
 		}
 		
 		arr[pos] = val;
-		change++; //arr[pos]�� �Ҵ������Ƿ� change �߻�
+		change++; //arr[pos] = val
 	}
 }
 

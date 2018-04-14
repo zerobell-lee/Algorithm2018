@@ -1,6 +1,5 @@
 #pragma once
 #include <stdio.h>
-#define MAX_SIZE 10
 
 extern int change;
 extern int compare;
@@ -10,18 +9,17 @@ void bubbleSort(int arr[], int size) {
 	int i, j, flag;
 	for (i=size-1; i>0; i--) {
 		flag = 0;
-		change++; //���� flag�� �Ҵ������Ƿ� change�� ����.
+		change++; //flag 할당에서 사용
 		for (j=0; j<i; j++) {
 			if (arr[j]>arr[j+1]) {
 				swap(&arr[j], &arr[j+1]);
 				flag = 1;
-				change++; //���� flag�� �Ҵ������Ƿ� change�� ����.
+				change++; //flag
 			}
 			change++;
 			compare++;
 		}
-//		printArray("arr", arr, MAX_SIZE);
-		compare++; //�Ʒ� flag �Ǻ��� �ϹǷ� compare�� ����.
+		compare++; //아래 !flag 판별에 사용
 		if (!flag)
 			break;
 	}

@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX_SIZE 10
-
 extern int change;
 extern int compare;
 
