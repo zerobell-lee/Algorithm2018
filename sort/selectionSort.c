@@ -6,8 +6,6 @@
 
 extern int change;
 extern int compare;
-extern FILE* selfp;
-
 
 
 void selectionSort(int arr[], int size) {
@@ -26,22 +24,8 @@ void selectionSort(int arr[], int size) {
 			compare++; //if
 		}
 		swap(&arr[i], &arr[min]);
-		if (size < 1001)
-			fprintArray(arr, size, selfp);
-//		printArray("arr", arr, MAX_SIZE);
+
 	}
-//	printArray("arr", arr, MAX_SIZE);
+
 
 }
-
-/* void main(int argc, char* argv[]) {
-	int arr[MAX_SIZE];
-	
-	arraySetup(arr, MAX_SIZE);
-	printArray("arr", arr, MAX_SIZE);
-
-	selectionSort(arr, MAX_SIZE);
-	
-
-}
-*/

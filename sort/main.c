@@ -6,28 +6,17 @@
 
 int change = 0;
 int compare = 0;
-FILE* selfp;
-FILE* bubfp;
-FILE* insfp;
-FILE* shefp;
-FILE* merfp;
-FILE* quifp;
 
 void main() {
 	
-	printf("정렬 알고리즘 비교 201202564 이영종 \n");
+	printf("???? ????? ?? 201202564 ????? \n");
 
 	FILE* log;
 	int* arr[10];
 	int* orig[10];
 	char buff[1024];
 
-	selfp = fopen("selection.csv", "w");
-	bubfp = fopen("bubble.csv", "w");
-	insfp = fopen("insertion.csv", "w");
-	shefp = fopen("shell.csv", "w");
-	merfp = fopen("merge.csv", "w");
-	quifp = fopen("quick.csv", "w");
+	
 	log = fopen("log.csv", "a+");
 
 	for (int i = 0; i < 10; i++)
@@ -89,10 +78,10 @@ void main() {
 					shellSort(arr[j], size);
 					break;
 				case 4:
-					mergeSort(arr[j], 0, size - 1, size);
+					mergeSort(arr[j], 0, size - 1);
 					break;
 				case 5:
-					quickSort(arr[j], 0, size - 1, size);
+					quickSort(arr[j], 0, size - 1);
 					break;
 			}
 			printf("size=%d ", size);
@@ -108,9 +97,5 @@ void main() {
 		free(orig[i]);
 	}
 	fclose(log);
-	fclose(selfp);
-	fclose(bubfp);
-	fclose(shefp);
-	fclose(insfp);
 	return 0;
 }

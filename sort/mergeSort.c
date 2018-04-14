@@ -1,64 +1,48 @@
 #pragma once
 #include <stdio.h>
+#include <stdlib.h>
 
-#define MAX_SIZE 10
 
 extern int change;
 extern int compare;
 
-extern FILE* merfp;
-
 void merge(int a[], int start, int middle, int end) {
-	int* b = (int *)malloc((end - start + 1)*sizeof(int)); //Visual Studio¿¡¼­´Â ¹è¿­ÀÇ Å©±â°¡ º¯¼ö·Î ÁöÁ¤µÇÁö ¾Ê´Â´Ù.
+	int* b = (int *)malloc((end - start + 1)*sizeof(int)); //Visual Studioï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ï¿½ï¿½ Å©ï¿½â°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 	int i = start;
 	int j = middle+1;
-	change++; change++; //À§ÀÇ i¿Í j°¡ ÇÒ´çµÇ¾úÀ¸¹Ç·Î change 2¹ø ¹ß»ý
+	change++; change++; //ï¿½ï¿½ï¿½ï¿½ iï¿½ï¿½ jï¿½ï¿½ ï¿½Ò´ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ change 2ï¿½ï¿½ ï¿½ß»ï¿½
 	for (int k=0; k<=(end-start); k++) {
 		
 		if ((i<=middle)&&(j>end||a[i]<=a[j])) {
 			b[k] = a[i];
 			i++;
 			change++;
-			change++; //À§¿¡¼­ ÇÒ´çÀÌ µÎ¹ø ÀÏ¾î³µÀ¸´Ï ÀÌ°Íµµ µÎ¹ø
+			change++; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½Î¹ï¿½ ï¿½Ï¾î³µï¿½ï¿½ï¿½ï¿½ ï¿½Ì°Íµï¿½ ï¿½Î¹ï¿½
 		}
 		else {
 			b[k] = a[j];
 			j++;
 			change++;
-			change++; //¸¶Âù°¡Áö
+			change++; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		}
-		compare++; //ifÀ» °ÅÃÄ¿ÔÀ¸¹Ç·Î change ¹ß»ý
+		compare++; //ifï¿½ï¿½ ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ change ï¿½ß»ï¿½
 	}
 	
 	for (int k=0; (k<=end-start); k++) {
 		a[k+start] = b[k];
-		change++; //À­ÁÙ¿¡¼­ ¹ß»ýÇÑ change
+		change++; //ï¿½ï¿½ï¿½Ù¿ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ change
 	}
 }
 
-void mergeSort(int a[], int start, int end, int size) {
+void mergeSort(int a[], int start, int end) {
 
-	compare++; //¾Æ·¡ if¿¡¼­ °á±¹ ºñ±³¿¬»êÀ» ¼öÇàÇÏ¹Ç·Î compare ¹ß»ý
+	compare++; //ï¿½Æ·ï¿½ ifï¿½ï¿½ï¿½ï¿½ ï¿½á±¹ ï¿½ñ±³¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¹Ç·ï¿½ compare ï¿½ß»ï¿½
 	if ((end - start) < 1)
 		return;
 	int middle = (start+end)/2;
-	change++; //middle ÇÒ´ç¿¡¼­ change ¹ß»ý.
-	mergeSort(a, start, middle, size);
-	mergeSort(a, middle+1, end, size);
+	change++; //middle ï¿½Ò´ç¿¡ï¿½ï¿½ change ï¿½ß»ï¿½.
+	mergeSort(a, start, middle);
+	mergeSort(a, middle+1, end);
 	merge(a, start, middle, end);
-	if (size < 1001)
-		fprintArray(a, size, merfp);
 
 }
-
-/* void main(int argc, char* argv[]) {
-	int arr[MAX_SIZE];
-	
-	arraySetup(arr, MAX_SIZE);
-	printArray("arr", arr, MAX_SIZE);
-
-	mergeSort(arr, 0, MAX_SIZE-1);	
-	printArray("arr", arr, MAX_SIZE);
-
-}
-*/

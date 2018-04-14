@@ -1,61 +1,45 @@
 #pragma once
 #include <stdio.h>
 
-#define MAX_SIZE 10
 
 extern int change;
 extern int compare;
-
-extern FILE* quifp;
 
 int partition(int a[], int start, int end) {
 	int pivot=start;
 	int L=start;
 	int R=end;
-	change++; change++; change++; //À§ ¼¼ÁÙ ´ö¿¡ change 3¹ø
+	change++; change++; change++; //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ change 3ï¿½ï¿½
 
 	while (L<R) {
-		compare++; //while µé¾î¿À¸é¼­ ºñ±³ ÇÑ¹ø
+		compare++; //while ï¿½ï¿½ï¿½ï¿½ï¿½é¼­ ï¿½ï¿½ ï¿½Ñ¹ï¿½
 		while ((a[L] <= a[pivot]) && (L < end)) {
-			compare++; //while µé¾î¿À¸é¼­ ºñ±³ ÇÑ¹ø
+			compare++; //while ï¿½ï¿½ï¿½ï¿½ï¿½é¼­ ï¿½ï¿½ ï¿½Ñ¹ï¿½
 			L++;
-			change++; //L°ªÀÌ º¯°æµÇ¾úÀ¸´Ï change ¹ß»ý
+			change++; //Lï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ change ï¿½ß»ï¿½
 		}
-		compare++; //whileÀÌ ¸¶Áö¸·¿¡ ½ÇÇàµÇÁö ¾Ê´õ¶óµµ Á¶°Ç¹®À» ÇÑ¹ø °ÅÄ¡°í ¿Â °ÍÀÌ´Ï compare ¹ß»ý
+		compare++; //whileï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ compare ï¿½ß»ï¿½
 		while (a[R] > a[pivot]) {
-			compare++; //while µé¾î¿À¸é¼­ ºñ±³ ÇÑ¹ø
+			compare++; //while ï¿½ï¿½ï¿½ï¿½ï¿½é¼­ ï¿½ï¿½ ï¿½Ñ¹ï¿½
 			R--;
-			change++; //R°ªÀÌ º¯°æµÇ¾úÀ¸´Ï change ¹ß»ý
+			change++; //Rï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ change ï¿½ß»ï¿½
 		}
-		compare++; //whileÀÌ ¸¶Áö¸·¿¡ ½ÇÇàµÇÁö ¾Ê´õ¶óµµ Á¶°Ç¹®À» ÇÑ¹ø °ÅÄ¡°í ¿Â °ÍÀÌ´Ï compare ¹ß»ý
+		compare++; //whileï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ compare ï¿½ß»ï¿½
 		if (L<R) swap(&a[L], &a[R]);
-		compare++; //À§ÀÇ if¿¡¼­ ºñ±³¿¬»ê ¹ß»ý
+		compare++; //ï¿½ï¿½ï¿½ï¿½ ifï¿½ï¿½ï¿½ï¿½ ï¿½ñ±³¿ï¿½ï¿½ï¿½ ï¿½ß»ï¿½
 	}
-	compare++; //whileÀÌ ¸¶Áö¸·¿¡ ½ÇÇàµÇÁö ¾Ê´õ¶óµµ Á¶°Ç¹®À» ÇÑ¹ø °ÅÄ¡°í ¿Â °ÍÀÌ´Ï compare ¹ß»ý
+	compare++; //whileï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ compare ï¿½ß»ï¿½
 	swap(&a[pivot],&a[R]);
 	return R;
 }
 
-void quickSort(int a[], int start, int end, int size) {
+void quickSort(int a[], int start, int end) {
 
 	if (start<end) {
 		int pivot = partition(a, start, end);
-		if (size < 1001)
-			fprintArray(a, size, quifp);
-		change++; //pivot ÇÒ´çÀÌ µÇ¾úÀ¸´Ï change
-		quickSort(a, start, pivot-1, size);
-		quickSort(a, pivot+1, end, size);
+		change++; //pivot ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ change
+		quickSort(a, start, pivot-1);
+		quickSort(a, pivot+1, end);
 	}
-	compare++; //if°¡ ½ÇÇàµÇÁö ¾Ê´õ¶óµµ ºñ±³¿¬»êÀº ½ÃÇàµÈ´Ù.
+	compare++; //ifï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ï¿½ï¿½ ï¿½ñ±³¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È´ï¿½.
 }
-
-/* void main(int argc, char* argv[]) {
-	int arr[MAX_SIZE];
-	
-	arraySetup(arr, MAX_SIZE);
-	printArray("arr", arr, MAX_SIZE);
-
-	quickSort(arr, 0, MAX_SIZE-1);	
-	printArray("arr", arr, MAX_SIZE);
-
-} */

@@ -2,12 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define ARRAY_SIZE 10
-
 extern int change;
 extern int compare;
-
-extern FILE* insfp;
 
 void insertionSort(int arr[], int size) {
 
@@ -15,43 +11,21 @@ void insertionSort(int arr[], int size) {
 	for (int i=1; i<size; i++) {
 		
 		val = arr[i];	
-		change++; //valÀ» ÇÒ´çÇßÀ¸¹Ç·Î change°¡ ¹ß»ý
+		change++; //valï¿½ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ changeï¿½ï¿½ ï¿½ß»ï¿½
 		
 		for (pos=i; pos>0; pos--) {
 			
-			compare++; //¾Æ·¡ if¹®¿¡¼­ ºñ±³¿¬»êÀ» ÇÏ¹Ç·Î compare ¹ß»ý
+			compare++; //ï¿½Æ·ï¿½ ifï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ñ±³¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¹Ç·ï¿½ compare ï¿½ß»ï¿½
 			if (val < arr[pos - 1]) {
 				arr[pos] = arr[pos - 1];
-				change++; //¹è¿­ ÇÒ´çÀ» ÇßÀ¸¹Ç·Î change ¹ß»ý
+				change++; //ï¿½è¿­ ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ change ï¿½ß»ï¿½
 			}
 			else
 				break;
 		}
 		
 		arr[pos] = val;
-		change++; //arr[pos]¸¦ ÇÒ´çÇßÀ¸¹Ç·Î change ¹ß»ý
-		if (size < 1001)
-			fprintArray(arr, size, insfp);
-		// printArray("arr", arr, size);
+		change++; //arr[pos]ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ change ï¿½ß»ï¿½
 	}
 }
 
-
-/* void main() {
-
-	int arr[ARRAY_SIZE];
-
-	srand(time(NULL));
-
-	for (int i=0; i<ARRAY_SIZE; i++) {
-
-		arr[i] = rand()%1000;
-
-	}
-	printArray("arr", arr, ARRAY_SIZE);
-	insertionSort(arr, ARRAY_SIZE);
-
-	
-	printArray("arr", arr, ARRAY_SIZE);
-}
-*/

@@ -5,40 +5,24 @@
 extern int change;
 extern int compare;
 
-extern FILE* bubfp;
-
 void bubbleSort(int arr[], int size) {
 
 	int i, j, flag;
 	for (i=size-1; i>0; i--) {
 		flag = 0;
-		change++; //À§¿¡ flag¸¦ ÇÒ´çÇßÀ¸¹Ç·Î change°¡ µé¾î°£´Ù.
+		change++; //ï¿½ï¿½ï¿½ï¿½ flagï¿½ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ changeï¿½ï¿½ ï¿½ï¿½î°£ï¿½ï¿½.
 		for (j=0; j<i; j++) {
 			if (arr[j]>arr[j+1]) {
 				swap(&arr[j], &arr[j+1]);
 				flag = 1;
-				change++; //À§¿¡ flag¸¦ ÇÒ´çÇßÀ¸¹Ç·Î change°¡ µé¾î°£´Ù.
+				change++; //ï¿½ï¿½ï¿½ï¿½ flagï¿½ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ changeï¿½ï¿½ ï¿½ï¿½î°£ï¿½ï¿½.
 			}
 			change++;
 			compare++;
 		}
-		if (size < 1001)
-			fprintArray(arr, size, bubfp);
 //		printArray("arr", arr, MAX_SIZE);
-		compare++; //¾Æ·¡ flag ÆÇº°À» ÇÏ¹Ç·Î compare°¡ µé¾î°£´Ù.
+		compare++; //ï¿½Æ·ï¿½ flag ï¿½Çºï¿½ï¿½ï¿½ ï¿½Ï¹Ç·ï¿½ compareï¿½ï¿½ ï¿½ï¿½î°£ï¿½ï¿½.
 		if (!flag)
 			break;
 	}
 }
-
-/* void main(int argc, char* argv[]) {
-	int arr[MAX_SIZE];
-	
-	arraySetup(arr, MAX_SIZE);
-	printArray("arr", arr, MAX_SIZE);
-
-	bubbleSort(arr, MAX_SIZE);
-	
-
-}
-*/
